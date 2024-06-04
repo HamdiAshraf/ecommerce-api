@@ -4,19 +4,31 @@ const mongoose = require('mongoose')
 const morgan = require('morgan')
 const cors = require('cors')
 
-const productsRoute = require('./routes/products.router')
-
 const app = express();
+
+const productsRoute = require('./routes/products.router')
+const categoriesRoute = require('./routes/categories.router')
+const ordersRoute = require('./routes/orders.router')
+const usersRoute = require('./routes/users.router')
+
+
+const PORT = process.env.PORT || 3000;
+const api = process.env.API_URI;
+
+
 
 app.use(cors())
 app.options('*', cors())
 app.use(express.json())
 app.use(morgan('tiny')) //logger
 
-const PORT = process.env.PORT || 3000;
-const api = process.env.API_URI;
+
 
 app.use(`${api}/products`, productsRoute)
+app.use(`${api}/categories`, categoriesRoute)
+// app.use(`${api}/orders`, ordersRoute)
+// app.use(`${api}/users`, usersRoute)
+
 
 
 
