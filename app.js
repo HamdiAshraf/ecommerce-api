@@ -28,7 +28,7 @@ app.use(morgan('tiny')) //logger
 
 app.use(`${api}/products`, productsRoute)
 app.use(`${api}/categories`, categoriesRoute)
-// app.use(`${api}/orders`, ordersRoute)
+app.use(`${api}/orders`, ordersRoute)
 app.use(`${api}/users`, usersRoute)
 
 // Global error handler
